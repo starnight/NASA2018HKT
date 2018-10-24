@@ -1,10 +1,29 @@
 # Go Polar Bear!
 
+## Get Original Data Images
+
+### From ArcGIS
+
+We found there are a lot of landform data from [ArcGIS](https://www.arcgis.com/apps/webappviewer/index.html?id=aff5fa8f5d5548c6bff44cc8be385f61).  For example, the GeoTiff which we can open with [QGIS](https://qgis.org) represents altitude in grayscale.
+
+![Altitude in grayscale](https://images-2018.spaceappschallenge.org/stream-images/HmBtu4oorg78jpiwlCQNc59ftDI=/3796/width-800/)
+
+However, most of the data is around the **land**, not the **sea/ocean**, which we are more interested in for the challenge.
+![Data distribution of ArcGIS](https://images-2018.spaceappschallenge.org/stream-images/exYYMiuP9gbsAAQND0thhN0WCv4=/5953/width-800/)
+
+Therefore, we put the eyes on NASA EOSDIS Worldview.
+
+### From NASA EOSDIS Worldview
+
+[Worldview](https://worldview.earthdata.nasa.gov/) has a lot of arranged environmental remote sensing images.  We can download a selected frame directly.
+![EOSDIS Worldview](https://images-2018.spaceappschallenge.org/stream-images/DLQFkLRZWGqWFcoyX3z880bRuPg=/5955/width-800/)
+We even downloaded the images in the same area but on different dates with [cURL](https://curl.haxx.se/) in batches.
+
 ## Image Processing for Finding Ice (with OpenCV, Matplotlib and NumPy)
 Photographers always check the histogram after they take the pictures.  The histogram shows the brightness distribution of the picture.  Photographers can adjust the exposure to get proper brightness distribution.
 
 This the original image from NASA EOSDIS Worldview
-![Original image](https://images-2018.spaceappschallenge.org/stream-images/bFL81KIhRZhjccN5At4BNgOFZPo=/4045/width-800/)
+![Original image](https://gibs.earthdata.nasa.gov/image-download?TIME=2010157&extent=-2170028.8892296343%2C-478197.6886162932%2C-1907884.8892296343%2C-216053.6886162932&epsg=3413&layers=MODIS_Terra_CorrectedReflectance_TrueColor%2CCoastlines&opacities=1%2C1&worldfile=false&format=image%2Fjpeg&width=1024&height=1024&fbclid=IwAR13m97uPlflqZnKFAE9zE4M6t7EXA9NghJzurM7jCS2ksiHVXM2Lp_9iY8)
 
 We try to find the sea/ocean and ice/snow with the same idea:
 1. Have the histogram of the original image with OpenCV and plot it with Matplotlib.

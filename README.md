@@ -19,7 +19,10 @@ Therefore, we put the eyes on NASA EOSDIS Worldview.
 ![EOSDIS Worldview](https://images-2018.spaceappschallenge.org/stream-images/DLQFkLRZWGqWFcoyX3z880bRuPg=/5955/width-800/)
 We even downloaded the images in the same area but on different dates with [cURL](https://curl.haxx.se/) in batches.
 
-## Image Processing for Finding Ice (with OpenCV, Matplotlib and NumPy)
+## Image Processing for Finding Ice (with OpenCV, Matplotlib, NumPy and Python3)
+
+Install the required tools first.  Arch Linux for example: pacman -S opencv python-numpy python-matplotlib
+
 Photographers always check the histogram after they take the pictures.  The histogram shows the brightness distribution of the picture.  Photographers can adjust the exposure to get proper brightness distribution.
 
 This the original image from NASA EOSDIS Worldview
@@ -49,3 +52,5 @@ We not only distinguish the ice and sea (also land), but also make more varied l
 1. To have a smoother landform, we blurred the original image in grayscale first. ![Blurred grayscale](https://images-2018.spaceappschallenge.org/stream-images/zJxwRPbvjv8CtTrCHWT82xQNf6w=/4082/width-800/)
 2. Set the sea/ocean part as 0 in grayscale. ![Grayscale image without sea](https://images-2018.spaceappschallenge.org/stream-images/f7g4q_xtE6F3bKRd-Qkh3IoQCFQ=/4089/width-800/)
 3. Assign the gray value of the modified image in grayscale as the altitude in the game.  We also export the modified image in grayscale as a RAW file for the game with [GIMP](https://www.gimp.org/).
+
+The processes mentioned above could be found at [findice.py](https://github.com/starnight/NASA2018HKT/blob/master/findice.py).

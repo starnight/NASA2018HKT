@@ -53,4 +53,5 @@ We not only distinguish the ice and sea (also land), but also make more varied l
 2. Set the sea/ocean part as 0 in grayscale. ![Grayscale image without sea](https://images-2018.spaceappschallenge.org/stream-images/f7g4q_xtE6F3bKRd-Qkh3IoQCFQ=/4089/width-800/)
 3. Assign the gray value of the modified image in grayscale as the altitude in the game.  We also export the modified image in grayscale as a RAW file for the game with [GIMP](https://www.gimp.org/).
 
-The processes mentioned above could be found at [findice.py](https://github.com/starnight/NASA2018HKT/blob/master/findice.py).
+The processes mentioned above could be found at [findice.py](https://github.com/starnight/NASA2018HKT/blob/master/gen-terrain/findice.py).
+```python findice.py sample/image-download.jpg test-gray.jpg```
